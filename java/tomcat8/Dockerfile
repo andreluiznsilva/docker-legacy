@@ -11,8 +11,7 @@ RUN wget -O /tmp/tomcat.tar.gz http://mirror.cogentco.com/pub/apache/tomcat/tomc
 RUN cd /opt
 RUN tar zxf /tmp/tomcat.tar.gz
 RUN mv /opt/apache-tomcat* /opt/tomcat
-RUN rm /tmp/tomcat7.tar.gz
 
 RUN rm -rf  /tmp/*
 
-CMD java -version
+CMD ./opt/tomcat/bin/startup.sh
