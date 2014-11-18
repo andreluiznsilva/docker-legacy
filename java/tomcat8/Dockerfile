@@ -11,4 +11,4 @@ RUN tar zxf /tmp/tomcat.tar.gz -C /opt
 RUN rm -rf  /tmp/*
 RUN mv /opt/apache-tomcat-8.0.15 /opt/tomcat
 
-CMD ./opt/tomcat/bin/startup.sh
+CMD ["./opt/tomcat/bin/startup.sh","tailf -n 100 /opt/tomcat/logs/catalina.out"]
