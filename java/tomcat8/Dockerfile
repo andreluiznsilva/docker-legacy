@@ -14,7 +14,7 @@ RUN mv /opt/apache-tomcat-8.0.15 /opt/tomcat
 
 # config
 RUN echo '<?xml version="1.0" encoding="utf-8"?><tomcat-users><role rolename="manager-gui"/><user username="admin" password="admin*123" roles="manager-gui"/></tomcat-users>' > /opt/tomcat/conf/tomcat-users.xml
-RUN export JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom"
+RUN env JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom"
 
 # clean
 RUN rm -rf  /tmp/*
