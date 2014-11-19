@@ -1,4 +1,4 @@
-# Debian with OpenJDK 7 e Tomcat 8
+# Debian with OpenJDK 7 and Tomcat 8
 
 FROM andreluiznsilva/java:openjdk7
 
