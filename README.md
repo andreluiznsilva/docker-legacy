@@ -3,6 +3,6 @@ docker
 
 Collection of Docker build files for many uses.
 
-Docker images available on the follow list dockerhub repositories.
+Docker hub repositories:
   
-java - [andreluiznsilva/java](https://registry.hub.docker.com/u/andreluiznsilva/java)
+[andreluiznsilva/java](https://registry.hub.docker.com/u/andreluiznsilva/java)
