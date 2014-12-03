@@ -1,0 +1,17 @@
+.settings/
+.idea/
+.metadata/
+target/
+target-eclipse/
+build/
+bin/
+opt/
+tools/
+*.iml
+*.classpath
+*.project
+*.log
+*~
+portal.log.1
+portal.log.2
+portal.log.3

@@ -1,6 +1,6 @@
 # Debian with OpenJDK 7
 
-FROM debian:wheezy
+FROM debian:jessie
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
