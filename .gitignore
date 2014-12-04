@@ -1,0 +1,11 @@
+.settings/
+.idea/
+.metadata/
+target/
+target-eclipse/
+build/
+bin/
+*.iml
+*.classpath
+*.project
+*.log
