@@ -1,6 +1,6 @@
 # Debian with Jenkins
 
-FROM library/jenkins:latest
+FROM andreluiznsilva/java:openjdk7
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 

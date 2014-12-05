@@ -1,4 +1,4 @@
-# Debian with Jenkins
+# Debian with jmeter
 
 FROM andreluiznsilva/java:openjdk7
 
