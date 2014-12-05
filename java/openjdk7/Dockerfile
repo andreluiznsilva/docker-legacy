@@ -5,9 +5,9 @@ FROM debian:jessie
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
 # init
-RUN apt-get update && apt-get -y install wget
+RUN apt-get update && apt-get install -y wget unzip
 
 # install
-RUN apt-get -y install openjdk-7-jre-headless
+RUN apt-get install -y openjdk-7-jre-headless
 
 CMD java -version

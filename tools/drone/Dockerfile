@@ -5,7 +5,7 @@ FROM ubuntu:14.10
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
 # init
-RUN apt-get update && apt-get -y install wget libsqlite3-dev docker.io
+RUN apt-get update && apt-get install -y wget libsqlite3-dev docker.io
 
 # install
 RUN wget -O /tmp/drone.deb downloads.drone.io/master/drone.deb

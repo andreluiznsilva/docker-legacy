@@ -5,7 +5,7 @@ FROM andreluiznsilva/java:openjdk7
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
 # init
-RUN apt-get update && apt-get -y install wget
+RUN apt-get update && apt-get install -y wget unzip
 
 # install
 RUN wget -O /tmp/wildfly.tar.gz http://download.jboss.org/wildfly/8.1.0.Final/wildfly-8.1.0.Final.tar.gz

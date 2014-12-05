@@ -5,7 +5,7 @@ FROM andreluiznsilva/java:openjdk7
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
 # init
-RUN apt-get update && apt-get -y install wget
+RUN apt-get update && apt-get install -y wget unzip
 
 # install
 RUN wget -O /tmp/tomcat.tar.gz http://mirror.cogentco.com/pub/apache/tomcat/tomcat-8/v8.0.15/bin/apache-tomcat-8.0.15.tar.gz
