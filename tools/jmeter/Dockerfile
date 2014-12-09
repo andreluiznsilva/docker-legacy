@@ -16,9 +16,9 @@ RUN mv /opt/apache-jmeter-2.12 /opt/jmeter
 RUN wget -O /tmp/JMeterPlugins-Standard-1.2.0.zip http://jmeter-plugins.org/files/JMeterPlugins-Standard-1.2.0.zip
 RUN wget -O /tmp/JMeterPlugins-Extras-1.2.0.zip http://jmeter-plugins.org/files/JMeterPlugins-Extras-1.2.0.zip
 RUN wget -O /tmp/JMeterPlugins-ExtrasLibs-1.2.0.zip http://jmeter-plugins.org/files/JMeterPlugins-ExtrasLibs-1.2.0.zip
-RUN unzip /tmp/JMeterPlugins-Standard-1.2.0.zip -d /opt/jmeter
-RUN unzip /tmp/JMeterPlugins-Extras-1.2.0.zip -d /opt/jmeter
-RUN unzip /tmp/JMeterPlugins-ExtrasLibs-1.2.0.zip -d /opt/jmeter
+RUN unzip -o /tmp/JMeterPlugins-Standard-1.2.0.zip -d /opt/jmeter
+RUN unzip -o /tmp/JMeterPlugins-Extras-1.2.0.zip -d /opt/jmeter
+RUN unzip -o /tmp/JMeterPlugins-ExtrasLibs-1.2.0.zip -d /opt/jmeter
 
 # clean
 RUN rm -rf  /tmp/*
