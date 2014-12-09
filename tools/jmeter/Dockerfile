@@ -25,4 +25,4 @@ RUN rm -rf  /tmp/*
 
 EXPOSE 1099
 
-CMD /opt/jmeter/bin/jmeter-server 
+CMD /opt/jmeter/bin/jmeter-server -Dserver.rmi.localport=1099
