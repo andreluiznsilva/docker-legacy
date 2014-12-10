@@ -4,9 +4,9 @@ FROM andreluiznsilva/java:openjdk7
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
-RUN wget -O /tmp/sonarqube-4.5.1.zip http://dist.sonar.codehaus.org/sonarqube-4.5.1.zip &&
-	unzip /tmp/sonarqube-4.5.1.zip -d /opt &&
-	mv /opt/sonarqube-4.5.1 /opt/sonar &&
+RUN wget -O /tmp/sonarqube-4.5.1.zip http://dist.sonar.codehaus.org/sonarqube-4.5.1.zip && \
+	unzip /tmp/sonarqube-4.5.1.zip -d /opt && \
+	mv /opt/sonarqube-4.5.1 /opt/sonar && \
 	rm -rf  /tmp/*
 
 EXPOSE 9000 9092
