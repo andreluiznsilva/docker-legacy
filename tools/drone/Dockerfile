@@ -1,4 +1,4 @@
-# Debian with Drone.io
+# Base image Drone.io
 
 FROM ubuntu:14.10
 
