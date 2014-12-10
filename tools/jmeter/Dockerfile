@@ -5,7 +5,7 @@ FROM andreluiznsilva/java:openjdk7
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
 # init
-RUN apt-get update && apt-get install -y wget unzip
+RUN apt-get update && apt-get install -y wget unzip libnet-ifconfig-wrapper-perl
 
 # install
 RUN wget -O /tmp/apache-jmeter-2.12.tgz http://mirror.nbtelecom.com.br/apache//jmeter/binaries/apache-jmeter-2.12.tgz
@@ -21,12 +21,12 @@ RUN unzip -o /tmp/JMeterPlugins-Extras-1.2.0.zip -d /opt/jmeter
 RUN unzip -o /tmp/JMeterPlugins-ExtrasLibs-1.2.0.zip -d /opt/jmeter
 
 # config
-RUN env HOST_IP="$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')"
-RUN env RMI_HOST_DEF=-"Djava.rmi.server.hostname=$HOST_IP"
+RUN export JMETER_IP="$(/sbin/ifconfig | grep "inet addr:" | awk -F: '{print $2}' | awk '{print $1}' | awk 'FNR == 2 {print}')"
+RUN export JMETER_PORT="1099"
 
 # clean
 RUN rm -rf  /tmp/*
 
 EXPOSE 1099
 
-CMD /opt/jmeter/bin/jmeter-server -Dserver.rmi.localport=1099
+CMD /opt/jmeter/bin/jmeter-server -Dserver.rmi.localport=$JMETER_PORT -Djava.rmi.server.hostname=$JMETER_IP
