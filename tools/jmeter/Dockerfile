@@ -20,13 +20,12 @@ RUN unzip -o /tmp/JMeterPlugins-Standard-1.2.0.zip -d /opt/jmeter
 RUN unzip -o /tmp/JMeterPlugins-Extras-1.2.0.zip -d /opt/jmeter
 RUN unzip -o /tmp/JMeterPlugins-ExtrasLibs-1.2.0.zip -d /opt/jmeter
 
-# config
-RUN env JMETER_IP="$(/sbin/ifconfig | grep "inet addr:" | awk -F: '{print $2}' | awk '{print $1}' | awk 'FNR == 2 {print}')"
-RUN env JMETER_PORT="1099"
-
 # clean
 RUN rm -rf  /tmp/*
 
 EXPOSE 1099
+
+# config
+ENTRYPOINT export JMETER_PORT="1099" && export JMETER_IP="$(/sbin/ifconfig | grep "inet addr:" | awk -F: '{print $2}' | awk '{print $1}' | awk 'FNR == 2 {print}')" 
 
 CMD /opt/jmeter/bin/jmeter-server -Dserver.rmi.localport=$JMETER_PORT -Djava.rmi.server.hostname=$JMETER_IP
