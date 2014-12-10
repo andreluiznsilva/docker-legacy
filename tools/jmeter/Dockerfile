@@ -26,7 +26,6 @@ RUN rm -rf  /tmp/*
 EXPOSE 1099
 
 # config
-ENV JMETER_PORT 1099
-ENV JMETER_IP $(/sbin/ifconfig | grep "inet addr:" | awk -F: '{print $2}' | awk '{print $1}' | awk 'FNR == 2 {print}')
+ENTRYPOINT export JMETER_IP="$(/sbin/ifconfig | grep "inet addr:" | awk -F: '{print $2}' | awk '{print $1}' | awk 'FNR == 2 {print}')"
 
-CMD /opt/jmeter/bin/jmeter-server -Dserver.rmi.localport=$JMETER_PORT -Djava.rmi.server.hostname=$JMETER_IP
+CMD /opt/jmeter/bin/jmeter-server -Dserver.rmi.localport=1099 -Djava.rmi.server.hostname=$JMETER_IP
