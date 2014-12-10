@@ -20,6 +20,10 @@ RUN unzip -o /tmp/JMeterPlugins-Standard-1.2.0.zip -d /opt/jmeter
 RUN unzip -o /tmp/JMeterPlugins-Extras-1.2.0.zip -d /opt/jmeter
 RUN unzip -o /tmp/JMeterPlugins-ExtrasLibs-1.2.0.zip -d /opt/jmeter
 
+# config
+RUN env HOST_IP="$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')"
+RUN env RMI_HOST_DEF=-"Djava.rmi.server.hostname=$HOST_IP"
+
 # clean
 RUN rm -rf  /tmp/*
 
