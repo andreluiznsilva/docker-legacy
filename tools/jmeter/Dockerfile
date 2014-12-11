@@ -18,5 +18,5 @@ RUN wget -O /tmp/apache-jmeter-2.12.tgz http://mirror.nbtelecom.com.br/apache//j
 
 EXPOSE 1099
 
-CMD export JMETER_IP="$(/sbin/ifconfig | grep "inet addr:" | awk -F: '{print $2}' | awk '{print $1}' | awk 'FNR == 2 {print}')" && \
+CMD export JMETER_IP="$(/sbin/ifconfig | grep "inet addr:" | awk -F: '{print $2}' | awk '{print $1}' | awk 'FNR == 1 {print}')" && \
 	/opt/jmeter/bin/jmeter-server -Dserver.rmi.localport=1099 -Djava.rmi.server.hostname=$JMETER_IP
