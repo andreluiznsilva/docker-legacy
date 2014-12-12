@@ -22,6 +22,4 @@ ENV SERVER_PORT 65501
 
 EXPOSE 1099
 
-CMD export RMI_HOSTNAME="$(/sbin/ifconfig | grep "inet addr:" | awk -F: '{print $2}' | awk '{print $1}' | awk 'FNR == 1 {print}')" && \
-	ifconfig && \
-	/opt/jmeter/bin/jmeter-server -Djava.rmi.server.hostname=${RMI_HOSTNAME} -Dserver.rmi.localhostname=${RMI_HOSTNAME} -Dserver.rmi.localport=${RMI_PORT} -Dserver_port=${SERVER_PORT}
+CMD /opt/jmeter/bin/jmeter-server -Dserver.rmi.localport=${RMI_PORT} -Dserver_port=${SERVER_PORT}
