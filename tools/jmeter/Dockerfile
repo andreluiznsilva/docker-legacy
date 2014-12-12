@@ -20,6 +20,6 @@ ENV RMI_HOSTNAME 127.0.0.1
 ENV RMI_PORT 65501
 ENV SERVER_PORT 65501
 
-EXPOSE 1099
+EXPOSE 65501
 
 CMD /opt/jmeter/bin/jmeter-server -Dserver.rmi.localport=${RMI_PORT} -Dserver_port=${SERVER_PORT}
