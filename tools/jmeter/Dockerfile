@@ -16,11 +16,12 @@ RUN wget -O /tmp/apache-jmeter-2.12.tgz http://mirror.nbtelecom.com.br/apache//j
 	unzip -o /tmp/JMeterPlugins-ExtrasLibs-1.2.0.zip -d /opt/jmeter && \
 	rm -rf  /tmp/*
 	
-ENV RMI_LOCALHOSTNAME 127.0.0.1
-ENV RMI_LOCALPORT 1099
-ENV SERVER_PORT 30000
+ENV RMI_HOSTNAME 127.0.0.1
+ENV RMI_PORT 65501
+ENV SERVER_PORT 65501
 
 EXPOSE 1099
 
-CMD ifconfig && \
-	/opt/jmeter/bin/jmeter-server -Dserver.rmi.localhostname=${RMI_LOCALHOSTNAME} -Dserver.rmi.localport=${RMI_LOCALPORT} -Dserver_port=${SERVER_PORT} -Djava.rmi.server.hostname=${RMI_LOCALHOSTNAME} 
+CMD export RMI_HOSTNAME="$(/sbin/ifconfig | grep "inet addr:" | awk -F: '{print $2}' | awk '{print $1}' | awk 'FNR == 1 {print}')" && \
+	ifconfig && \
+	/opt/jmeter/bin/jmeter-server -Djava.rmi.server.hostname=${RMI_HOSTNAME} -Dserver.rmi.localhostname=${RMI_HOSTNAME} -Dserver.rmi.localport=${RMI_PORT} -Dserver_port=${SERVER_PORT}
