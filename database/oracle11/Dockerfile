@@ -4,7 +4,7 @@ FROM wnameless/oracle-xe-11g
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
-RUN sqlplus -S system/system@localhost << EOF \ 
+RUN sqlplus -S system/oracle@localhost << EOF \ 
 	alter user system identified by system; \
 	create user admin identified by admin; \
 	grant all privileges to admin; \
