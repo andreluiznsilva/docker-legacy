@@ -1,4 +1,4 @@
-# Base image with ubuntu
+# Oracle Image
 
 FROM wnameless/oracle-xe-11g
 
