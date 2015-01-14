@@ -7,7 +7,9 @@ MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 ENV ORACLE_USER dbuser
 ENV ORACLE_PASSWORD dbuser
 
-RUN source /etc/bash.bashrc
+RUN export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
+RUN export PATH=$ORACLE_HOME/bin:$PATH
+RUN export ORACLE_SID=XE
 
 RUN echo "alter user system identified by system; \
 	create user admin identified by admin; \
