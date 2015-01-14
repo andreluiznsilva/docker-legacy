@@ -17,6 +17,6 @@ RUN echo "alter user system identified by system; \
 	create user ${ORACLE_USER} identified by ${ORACLE_PASSWORD}; \
 	grant all privileges to ${ORACLE_USER}; \
 	exit;" >> init.sql
-RUN sqlplus -S system/oracle@localhost @init.sql
+RUN /u01/app/oracle/product/11.2.0/xe/bin/sqlplus -S system/oracle@localhost @init.sql
 
 EXPOSE 1521
