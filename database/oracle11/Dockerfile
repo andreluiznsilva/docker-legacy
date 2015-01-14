@@ -4,11 +4,16 @@ FROM wnameless/oracle-xe-11g
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
+ENV ORACLE_USER dbuser
+ENV ORACLE_PASSWORD dbuser
+
+RUN source /etc/bash.bashrc
+
 RUN echo "alter user system identified by system; \
 	create user admin identified by admin; \
 	grant all privileges to admin; \
-	create user dbuser identified by dbuser; \
-	grant all privileges to dbuser; \
+	create user ${ORACLE_USER} identified by ${ORACLE_PASSWORD}; \
+	grant all privileges to ${ORACLE_USER}; \
 	exit;" >> init.sql
 RUN sqlplus -S system/oracle@localhost @init.sql
 
