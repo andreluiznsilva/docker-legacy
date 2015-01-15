@@ -7,7 +7,7 @@ MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 RUN wget -O /tmp/wildfly.tar.gz http://download.jboss.org/wildfly/8.2.0.Final/wildfly-8.2.0.Final.tar.gz && \
 	tar zxf /tmp/wildfly.tar.gz -C /opt && \
 	mv /opt/wildfly-8.2.0.Final /opt/wildfly8 && \
-	/opt/wildfly8/bin/add-user.sh --silent=true admin admin*123 && \
+	/opt/wildfly8/bin/add-user.sh --silent=true admin admin && \
 	sed -i "s#.*inet-address.*#\t<any-ipv4-address/>#g" /opt/wildfly8/standalone/configuration/standalone.xml && \
 	ln -s /opt/wildfly8/standalone/deployments/ apps && \
 	rm -rf  /tmp/*
