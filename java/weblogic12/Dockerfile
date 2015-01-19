@@ -4,7 +4,6 @@ FROM andreluiznsilva/java:openjdk7
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
-ADD cookies.txt /tmp/cookies.txt
 ADD config.py /tmp/config.py
 
 RUN wget "https://www.dropbox.com/s/qykd8rgwbr57kv7/wls1213_dev.zip?dl=0" -O /tmp/wls1213_dev.zip
