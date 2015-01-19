@@ -14,12 +14,12 @@ readTemplate("/opt/weblogic12/wlserver/common/templates/wls/wls.jar")
 # =========================================================
 cd('Servers/AdminServer')
 set('ListenAddress','')
-set('ListenPort', 7001)
+set('ListenPort', 8080)
 
 create('AdminServer','SSL')
 cd('SSL/AdminServer')
 set('Enabled', 'True')
-set('ListenPort', 7002)
+set('ListenPort', 8443)
 
 cd('/Servers/AdminServer/SSL/AdminServer')
 cmo.setHostnameVerificationIgnored(true)
@@ -30,9 +30,14 @@ cmo.setClientCertificateEnforced(false)
 # Define the user password for weblogic
 # =====================================
 cd('/')
-cd('Security/base_domain/User/weblogic')
+cd('Security/base_domain/User/admin')
 cmo.setPassword('admin*123')
 # Please set password here before using this script, e.g. cmo.setPassword('value')
+
+# Create admin user
+atnr=cmo.getSecurityConfiguration().getDefaultRealm().lookupAuthenticationProvider('DefaultAuthenticator')
+atnr.createUser('admin','admin*123','admin')
+atnr.addMemberToGroup('Administrator','admin')
 
 # Create a JMS Server
 # ===================
