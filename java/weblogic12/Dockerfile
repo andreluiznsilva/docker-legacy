@@ -6,10 +6,11 @@ MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
 ADD config.py /tmp/config.py
 
-RUN wget "https://www.dropbox.com/s/qykd8rgwbr57kv7/wls1213_dev.zip?dl=0" -O /tmp/wls1213_dev.zip
-RUN env JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64" && export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
-RUN	unzip /tmp/wls1213_dev.zip -d /opt && \
-	mv /opt/wls12130 /opt/weblogic12 && \
+RUN wget "https://www.dropbox.com/s/qykd8rgwbr57kv7/wls1213_dev.zip?dl=0" -O /tmp/wls1213_dev.zip && \
+	unzip /tmp/wls1213_dev.zip -d /opt && \
+	mv /opt/wls12130 /opt/weblogic12
+RUN env JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64" && \
+	export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64" && \
 	./opt/weblogic12/configure.sh -silent && \
 	./opt/weblogic12/wlserver/common/bin/wlst.sh -skipWLSModuleScanning /tmp/config.py && \
 	ln -s /opt/weblogic12/user_projects/domains/base_domain/autodeploy apps && \
