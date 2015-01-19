@@ -13,7 +13,7 @@ RUN env JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64" && \
 	export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64" && \
 	./opt/weblogic12/configure.sh -silent && \
 	./opt/weblogic12/wlserver/common/bin/wlst.sh -skipWLSModuleScanning /tmp/config.py	
-RUN	mkdir -p /u01/oracle/weblogic/user_projects/domains/base_domain/servers/AdminServer/security && \
+RUN	mkdir -p /opt/weblogic12/user_projects/domains/base_domain/servers/AdminServer/security && \
 	echo "username=weblogic" > /opt/weblogic12/user_projects/domains/base_domain/servers/AdminServer/security/boot.properties && \ 
     echo "password=admin*123" >> /opt/weblogic12/user_projects/domains/base_domain/servers/AdminServer/security/boot.properties && \
 	ln -s /opt/weblogic12/user_projects/domains/base_domain/autodeploy apps && \
