@@ -27,17 +27,12 @@ cmo.setHostnameVerifier(None)
 cmo.setTwoWaySSLEnabled(false)
 cmo.setClientCertificateEnforced(false)
 
-# Define the user password for weblogic
+# Define the user password for admin
 # =====================================
 cd('/')
 cd('Security/base_domain/User/admin')
 cmo.setPassword('admin*123')
 # Please set password here before using this script, e.g. cmo.setPassword('value')
-
-# Create admin user
-atnr=cmo.getSecurityConfiguration().getDefaultRealm().lookupAuthenticationProvider('DefaultAuthenticator')
-atnr.createUser('admin','admin*123','admin')
-atnr.addMemberToGroup('Administrator','admin')
 
 # Create a JMS Server
 # ===================
