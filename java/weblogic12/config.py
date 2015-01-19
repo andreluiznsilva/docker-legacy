@@ -27,10 +27,10 @@ cmo.setHostnameVerifier(None)
 cmo.setTwoWaySSLEnabled(false)
 cmo.setClientCertificateEnforced(false)
 
-# Define the user password for admin
+# Define the user password for weblogic
 # =====================================
 cd('/')
-cd('Security/base_domain/User/admin')
+cd('Security/base_domain/User/weblogic')
 cmo.setPassword('admin*123')
 # Please set password here before using this script, e.g. cmo.setPassword('value')
 

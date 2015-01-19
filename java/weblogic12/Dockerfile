@@ -15,7 +15,7 @@ RUN wget "https://www.dropbox.com/s/qykd8rgwbr57kv7/wls1213_dev.zip?dl=0" -O /tm
 	./opt/weblogic12/wlserver/common/bin/wlst.sh -skipWLSModuleScanning /tmp/config.py && \	
 	mkdir -p /usr/lib/jvm/java-7-openjdk-amd64/lib && \
 	mkdir -p /opt/weblogic12/user_projects/domains/base_domain/servers/AdminServer/security && \
-	echo "username=admin" > /opt/weblogic12/user_projects/domains/base_domain/servers/AdminServer/security/boot.properties && \ 
+	echo "username=weblogic" > /opt/weblogic12/user_projects/domains/base_domain/servers/AdminServer/security/boot.properties && \ 
     echo "password=admin*123" >> /opt/weblogic12/user_projects/domains/base_domain/servers/AdminServer/security/boot.properties && \
 	ln -s /opt/weblogic12/user_projects/domains/base_domain/autodeploy apps && \
     rm -rf  /tmp/*
