@@ -12,11 +12,11 @@ RUN wget "https://www.dropbox.com/s/qykd8rgwbr57kv7/wls1213_dev.zip?dl=0" -O /tm
 RUN env JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64" && \
 	export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64" && \
 	./opt/weblogic12/configure.sh -silent && \
-	./opt/weblogic12/wlserver/common/bin/wlst.sh -skipWLSModuleScanning /tmp/config.py && \
-	ln -s /opt/weblogic12/user_projects/domains/base_domain/autodeploy apps && \
-	mkdir -p /u01/oracle/weblogic/user_projects/domains/base_domain/servers/AdminServer/security && \
+	./opt/weblogic12/wlserver/common/bin/wlst.sh -skipWLSModuleScanning /tmp/config.py	
+RUN	mkdir -p /u01/oracle/weblogic/user_projects/domains/base_domain/servers/AdminServer/security && \
 	echo "username=weblogic" > /opt/weblogic12/user_projects/domains/base_domain/servers/AdminServer/security/boot.properties && \ 
     echo "password=admin*123" >> /opt/weblogic12/user_projects/domains/base_domain/servers/AdminServer/security/boot.properties && \
+	ln -s /opt/weblogic12/user_projects/domains/base_domain/autodeploy apps && \
     rm -rf  /tmp/*
 
 EXPOSE 5556 7001 7002
