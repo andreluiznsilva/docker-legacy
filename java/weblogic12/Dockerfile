@@ -5,7 +5,7 @@ FROM andreluiznsilva/java:openjdk7
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
 ADD config.py /tmp/config.py
-ADD config.py /tmp/custom-wls.jar
+ADD custom-wls.jar /tmp/custom-wls.jar
 
 RUN wget "https://www.dropbox.com/s/qykd8rgwbr57kv7/wls1213_dev.zip?dl=0" -O /tmp/wls1213_dev.zip && \
 	unzip /tmp/wls1213_dev.zip -d /opt && \
