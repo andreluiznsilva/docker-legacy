@@ -7,7 +7,7 @@ MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 ADD cookies.txt /tmp/cookies.txt
 ADD config.py /tmp/config.py
 
-RUN wget --load-cookies=/tmp/cookies.txt --no-check-certificate "http://download.oracle.com/otn/nt/middleware/12c/wls/1213/wls1213_dev.zip?AuthParam=1421429843_e8aba0188cf328031f2ba2d570bee57b" -O /tmp/wls1213_dev.zip
+RUN wget "https://www.dropbox.com/s/qykd8rgwbr57kv7/wls1213_dev.zip?dl=0" -O /tmp/wls1213_dev.zip
 RUN env JAVA_HOME="/usr/lib/jvm/java-1.7.0-openjdk-amd64/jre"
 RUN	unzip /tmp/wls1213_dev.zip -d /opt && \
 	mv /opt/wls12130 /opt/weblogic12 && \
