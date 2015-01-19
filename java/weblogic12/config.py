@@ -1,7 +1,7 @@
 #
 # WebLogic on Docker Default Domain
 #
-# Default domain 'base_domain' to be created inside the Docker image for WLS
+# Default domain 'standalone' to be created inside the Docker image for WLS
 # 
 # author: bruno.borges@oracle.com
 # ==============================================
@@ -30,8 +30,14 @@ cmo.setClientCertificateEnforced(false)
 # Define the user password for weblogic
 # =====================================
 cd('/')
-cd('Security/base_domain/User/weblogic')
+cd('Security/standalone/User')
+create('admin','User');
+cd('admin')
 cmo.setPassword('admin*123')
+
+cd('/')
+cd('Security/standalone/User/weblogic')
+cmo.setPassword('weblogic*123')
 # Please set password here before using this script, e.g. cmo.setPassword('value')
 
 # Create a JMS Server
@@ -101,7 +107,7 @@ cd('NMProperties')
 set('ListenAddress','')
 set('NativeVersionEnabled', 'false')
 
-writeDomain('/opt/weblogic12/user_projects/domains/base_domain')
+writeDomain('/opt/weblogic12/user_projects/domains/standalone')
 closeTemplate()
 
 # Exit WLST
