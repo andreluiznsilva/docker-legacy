@@ -8,7 +8,7 @@
 
 # Open default domain template
 # ======================
-readTemplate("/opt/weblogic12/wlserver/common/templates/wls/wls.jar")
+readTemplate("/tmp/custom-wls.jar")
 
 # Configure the Administration Server and SSL port.
 # =========================================================
@@ -30,14 +30,8 @@ cmo.setClientCertificateEnforced(false)
 # Define the user password for weblogic
 # =====================================
 cd('/')
-cd('Security/standalone/User')
-create('admin','User');
-cd('admin')
+cd('Security/standalone/User/admin')
 cmo.setPassword('admin*123')
-
-cd('/')
-cd('Security/standalone/User/weblogic')
-cmo.setPassword('weblogic*123')
 # Please set password here before using this script, e.g. cmo.setPassword('value')
 
 # Create a JMS Server
