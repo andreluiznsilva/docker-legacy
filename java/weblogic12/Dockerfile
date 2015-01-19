@@ -9,8 +9,8 @@ ADD config.py /tmp/config.py
 RUN wget "https://www.dropbox.com/s/qykd8rgwbr57kv7/wls1213_dev.zip?dl=0" -O /tmp/wls1213_dev.zip && \
 	unzip /tmp/wls1213_dev.zip -d /opt && \
 	mv /opt/wls12130 /opt/weblogic12
-RUN env JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64" && \
-	export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64" && \
+RUN env JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/jre" && \
+	export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/jre" && \
 	./opt/weblogic12/configure.sh -silent && \
 	./opt/weblogic12/wlserver/common/bin/wlst.sh -skipWLSModuleScanning /tmp/config.py	
 RUN	mkdir -p /opt/weblogic12/user_projects/domains/base_domain/servers/AdminServer/security && \
@@ -21,4 +21,4 @@ RUN	mkdir -p /opt/weblogic12/user_projects/domains/base_domain/servers/AdminServ
 
 EXPOSE 5556 7001 7002
 
-CMD /opt/weblogic12/user_projects/domains/base_domain/bin/startWebLogic.sh
+CMD ./opt/weblogic12/user_projects/domains/base_domain/bin/startWebLogic.sh
