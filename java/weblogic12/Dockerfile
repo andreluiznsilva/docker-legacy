@@ -21,4 +21,4 @@ RUN wget "https://www.dropbox.com/s/qykd8rgwbr57kv7/wls1213_dev.zip?dl=0" -O /tm
 
 EXPOSE 5556 8080 8443
 
-CMD ./opt/weblogic12/user_projects/domains/standalone/bin/startWebLogic.sh -Dweblogic.ProductionModeEnabled=false
+CMD /opt/weblogic12/user_projects/domains/standalone/bin/startWebLogic.sh -Dweblogic.ProductionModeEnabled=false
