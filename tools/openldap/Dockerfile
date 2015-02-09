@@ -4,6 +4,8 @@ FROM andreluiznsilva/base:debian
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
+ADD init.sh /init.sh
+
 RUN apt-get update && \
 	echo "slapd slapd/internal/generated_adminpw string admin" | debconf-set-selections && \
 	echo "slapd slapd/password2 string admin" | debconf-set-selections && \
@@ -17,6 +19,4 @@ RUN apt-get update && \
 	
 EXPOSE 80 389
 
-CMD ./etc/init.d/slapd start && \
-	source /etc/apache2/envvars && \
-	exec apache2 -D FOREGROUND
+RUN bash init.sh
