@@ -13,7 +13,7 @@ RUN apt-get update && \
 	echo "slapd shared/organization string andre" | debconf-set-selections && \
 	echo "slapd slapd/domain string andre.com" | debconf-set-selections && \
 	apt-get install -q -y slapd ldap-utils phpldapadmin && \
-	dpkg-reconfigure -f noninteractive sladp
+	dpkg-reconfigure -f noninteractive slapd
 	
 EXPOSE 80 389
 
