@@ -19,4 +19,4 @@ RUN apt-get update
 	
 EXPOSE 80 389
 
-CMD bash init.sh
+CMD /usr/sbin/apache2ctl && /usr/sbin/slapd -u openldap -g openldap -d 0
