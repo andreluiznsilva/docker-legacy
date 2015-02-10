@@ -19,4 +19,4 @@ RUN apt-get update
 	
 EXPOSE 80 389
 
-RUN ["./etc/init.d/apache2 start", "/usr/sbin/slapd -u openldap -g openldap -d 0"]
+RUN init.sh

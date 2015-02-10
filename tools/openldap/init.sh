@@ -1,5 +1,4 @@
 #!/bin/bash
 
-service slapd start
-source /etc/apache2/envvars
-exec apache2 -D FOREGROUND
+./etc/init.d/apache2 start
+/usr/sbin/slapd -u openldap -g openldap -d 0
