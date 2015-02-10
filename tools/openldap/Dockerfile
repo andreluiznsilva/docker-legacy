@@ -6,7 +6,7 @@ MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
 ADD init.sh /init.sh
 
-RUN apt-get update 
+RUN apt-get update && \
 	echo "slapd slapd/internal/generated_adminpw string admin" | debconf-set-selections && \
 	echo "slapd slapd/password2 string admin" | debconf-set-selections && \
 	echo "slapd slapd/internal/adminpw string admin" | debconf-set-selections && \
