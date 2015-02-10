@@ -19,4 +19,4 @@ RUN apt-get update
 	
 EXPOSE 80 389
 
-RUN /init.sh
+RUN bash init.sh
