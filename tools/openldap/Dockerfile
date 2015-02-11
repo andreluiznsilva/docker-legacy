@@ -18,10 +18,10 @@ RUN apt-get update && \
 	echo "slapd slapd/purge_database boolean true" | debconf-set-selections && \
 	echo "slapd slapd/move_old_database boolean true" | debconf-set-selections && \
 	echo "slapd slapd/dump_database select when needed" | debconf-set-selections && \
-	apt-get install -q -y slapd ldap-utils ldapscripts phpldapadmin && \
+	LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -q -y slapd ldap-utils ldapscripts phpldapadmin && \
 	dpkg-reconfigure -f noninteractive slapd
 	
 EXPOSE 80 389
 
 CMD ./etc/init.d/apache2 start && \
-	/usr/sbin/slapd -u openldap -g openldap -d 0
+	/usr/sbin/slapd -h "ldapi:/// ldap:/// ldaps:///" -g openldap -u openldap -F /etc/ldap/slapd.d
