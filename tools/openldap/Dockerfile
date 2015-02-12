@@ -19,10 +19,7 @@ RUN apt-get update && \
 	echo "slapd slapd/move_old_database boolean true" | debconf-set-selections && \
 	echo "slapd slapd/dump_database select when needed" | debconf-set-selections && \
 	apt-get install -q -y slapd ldap-utils ldapscripts phpldapadmin && \
-	dpkg-reconfigure -f noninteractive slapd && \
-	echo 'olcSuffix: dc=test,dc=com' >> /etc/ldap/slapd.d/cn\=config/olcDatabase\=\{1\}hdb.ldif && \
-	echo 'olcRootDN: cn=admin,dc=test,dc=com' >> /etc/ldap/slapd.d/cn\=config/olcDatabase\=\{1\}hdb.ldif && \
-	echo 'olcRootPW:: e1NTSEF9WW1GZFZqR1pLZS8ydU1xQ084eXo1VytzWTMyVXpySEQ=' >> /etc/ldap/slapd.d/cn\=config/olcDatabase\=\{1\}hdb.ldif
+	dpkg-reconfigure -f noninteractive slapd
 	
 EXPOSE 80 389
 
