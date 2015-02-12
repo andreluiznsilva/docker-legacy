@@ -1,9 +1,5 @@
 #!/bin/bash
 
-service apache2 start
-
-service slapd start
-
 ./etc/init.d/apache2 start
 
-/usr/sbin/slapd -u openldap -g openldap -d 0
+slapd -h "ldap:/// ldapi:/// -u openldap -g openldap -F /etc/ldap/slapd.d -d 0
