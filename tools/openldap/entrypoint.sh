@@ -30,8 +30,6 @@ EOF
 
     date +%s > /etc/ldap/docker-configured
     
-    sed -i s/'dc=example,dc=com'/'$SLAPD_DOMAIN'/g /etc/phpldapadmin/config.php
-    
 fi
 
 exec "$@"
