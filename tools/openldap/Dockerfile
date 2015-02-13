@@ -1,6 +1,6 @@
 # Base image Openldap
 
-FROM cnry/openldap
+FROM andreluiznsilva/base:debian
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
