@@ -14,5 +14,4 @@ RUN apt-get update && \
 	
 EXPOSE 80 389
 
-CMD ./etc/init.d/apache2 start && \
-	bash init.sh
+CMD bash init.sh
