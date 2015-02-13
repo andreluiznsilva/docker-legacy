@@ -12,8 +12,6 @@ RUN apt-get update && \
 	
 EXPOSE 80 389
 
-COPY entrypoint.sh /entrypoint.sh
+ADD init.sh /init.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["slapd", "-h", "ldap:/// ldapi:///", "-u", "openldap", "-g", "openldap", "-F", "/etc/ldap/slapd.d", "-d", "0"]
+CMD bash init.sh
