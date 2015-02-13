@@ -10,7 +10,7 @@ ADD init.sh /init.sh
 
 RUN apt-get update && \
 	apt-get install -y phpldapadmin && \
-	sed -i s/'dc=example,dc=com'/'${SLAPD_DOMAIN:-nodomain}'/g /etc/phpldapadmin/config.php
+	sed -i s/'dc=example,dc=com'/'${SLAPD_DOMAIN}'/g /etc/phpldapadmin/config.php
 	
 EXPOSE 80 389
 
