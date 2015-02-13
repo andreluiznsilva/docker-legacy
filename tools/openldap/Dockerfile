@@ -14,4 +14,5 @@ RUN apt-get update && \
 	
 EXPOSE 80 389
 
-CMD bash init.sh
+CMD ./etc/init.d/apache2 start && \
+	slapd -h "ldap:/// ldapi:///" -u openldap -g openldap -F /etc/ldap/slapd.d -d 0
