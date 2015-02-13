@@ -8,7 +8,6 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
   	apt-get -y install slapd ldap-utils ldapscripts phpldapadmin && \
-  	chmod -R 777 entrypoint.sh && \
 	rm -rf /var/lib/apt/lists/*
 	
 EXPOSE 80 389
