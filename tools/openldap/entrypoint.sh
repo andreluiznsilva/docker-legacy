@@ -32,6 +32,8 @@ if [[ ! -f /etc/ldap/docker-configured ]]; then
     
     sed -i s/'dc=example,dc=com'/'$SLAPD_DOMAIN'/g /etc/phpldapadmin/config.php
     
+    ./etc/init.d/apache2 start
+    
 fi
 
 exec "$@"
