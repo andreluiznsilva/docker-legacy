@@ -1,6 +1,6 @@
 # Base image Openldap
 
-FROM cnry/dockerfiles:latest
+FROM cnry/openldap
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
