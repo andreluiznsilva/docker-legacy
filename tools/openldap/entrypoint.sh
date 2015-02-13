@@ -24,15 +24,13 @@ if [[ ! -f /etc/ldap/docker-configured ]]; then
       slapd slapd/allow_ldap_v2     boolean $SLAPD_ALLOW_V2
       slapd slapd/purge_database    boolean $SLAPD_PURGE_DB
       slapd slapd/move_old_database boolean $SLAPD_MOVE_OLD_DB
-	EOF
+EOF
 
     dpkg-reconfigure slapd >/tmp/slapd.reconfigure 2>&1
 
     date +%s > /etc/ldap/docker-configured
     
     sed -i s/'dc=example,dc=com'/'$SLAPD_DOMAIN'/g /etc/phpldapadmin/config.php
-    
-    ./etc/init.d/apache2 start
     
 fi
 
