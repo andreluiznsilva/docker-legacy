@@ -8,7 +8,7 @@ RUN wget -O /tmp/tomcat.tar.gz http://mirror.cogentco.com/pub/apache/tomcat/tomc
 	tar zxf /tmp/tomcat.tar.gz -C /opt && \
 	mv /opt/apache-tomcat-7.0.59 /opt/tomcat7 && \
 	echo '<?xml version="1.0" encoding="utf-8"?><tomcat-users><role rolename="manager-gui"/><user username="admin" password="admin*123" roles="manager-gui"/></tomcat-users>' > /opt/tomcat7/conf/tomcat-users.xml && \
-	sed '/<\/Realm>/a <Host name="localhost2" appBase="/apps" unpackWARs="true" autoDeploy="true"/>' /opt/tomcat7/conf/server.xml && \
+	sed -i '/<\/Realm>/a <Host name="localhost2" appBase="/apps" unpackWARs="true" autoDeploy="true"/>' /opt/tomcat7/conf/server.xml && \
 	env JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom" && \
 	rm -rf  /tmp/*
 
