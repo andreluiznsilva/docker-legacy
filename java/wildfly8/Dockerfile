@@ -9,7 +9,7 @@ RUN wget -O /tmp/wildfly.tar.gz http://download.jboss.org/wildfly/8.2.0.Final/wi
 	mv /opt/wildfly-8.2.0.Final /opt/wildfly8 && \
 	/opt/wildfly8/bin/add-user.sh --silent=true admin admin*123 && \
 	sed -i "s#.*inet-address.*#\t<any-ipv4-address/>#g" /opt/wildfly8/standalone/configuration/standalone.xml && \
-	ln -s /opt/wildfly8/standalone/deployments/ apps && \
+	ln -s /opt/wildfly8/standalone/deployments/ autodeploy && \
 	rm -rf  /tmp/*
 
 EXPOSE 8080 9990

@@ -9,7 +9,7 @@ RUN wget -O /tmp/jboss.tar.gz http://download.jboss.org/jbossas/7.1/jboss-as-7.1
 	mv /opt/jboss-as-7.1.1.Final /opt/jboss7 && \
 	/opt/jboss7/bin/add-user.sh --silent=true admin admin*123 && \
 	sed -i "s#.*inet-address.*#\t<any-ipv4-address/>#g" /opt/jboss7/standalone/configuration/standalone.xml && \
-	ln -s /opt/jboss7/standalone/deployments/ apps && \
+	ln -s /opt/jboss7/standalone/deployments/ autodeploy && \
 	rm -rf  /tmp/*
 
 EXPOSE 8080 9990
