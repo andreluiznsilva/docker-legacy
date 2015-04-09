@@ -7,10 +7,10 @@ export PATH=$ORACLE_HOME/bin:$PATH
 export ORACLE_SID=XE
 
 sqlplus -S system/oracle << EOF
-alter user system identified by system;
-create user admin identified by admin; 
+alter user system identified by ${ORACLE_SYSTEM_PASSWORD};
+create user admin identified by ${ORACLE_SYSTEM_PASSWORD}; 
 grant all privileges to admin;
-create user dbuser identified by dbuser; 
-grant all privileges to dbuser;
+create user ${ORACLE_USER} identified by ${ORACLE_PASSWORD}; 
+grant all privileges to ${ORACLE_USER};
 exit;
 EOF
