@@ -9,11 +9,9 @@ RUN wget -O /tmp/tomcat.tar.gz http://mirror.cogentco.com/pub/apache/tomcat/tomc
 	mv /opt/apache-tomcat-7.0.59 /opt/tomcat7 && \
 	echo '<?xml version="1.0" encoding="utf-8"?><tomcat-users><role rolename="manager-gui"/><user username="admin" password="admin*123" roles="manager-gui"/></tomcat-users>' > /opt/tomcat7/conf/tomcat-users.xml && \
 	env JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom" && \
-	cp -r /opt/tomcat7/webapps /opt/tomcat7/adminapps && \
 	ln -s /opt/tomcat7/webapps/ autodeploy && \
 	rm -rf  /tmp/*
 
 EXPOSE 8080
 
-ENTRYPOINT cp -r /opt/tomcat7/adminapps autodeploy
-CMD	/bin/sh -e /opt/tomcat7/bin/catalina.sh run
+CMD /bin/sh -e /opt/tomcat7/bin/catalina.sh run
