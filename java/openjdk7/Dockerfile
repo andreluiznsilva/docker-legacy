@@ -4,6 +4,6 @@ FROM andreluiznsilva/base:debian
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
-RUN apt-get update && apt-get install -y openjdk-7-jre-headless && apt-get autoremove && apt-get autoclean
+RUN apt-get install -y openjdk-7-jre-headless
 
 CMD java -version
