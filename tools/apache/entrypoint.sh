@@ -2,5 +2,7 @@
 set -e
 
 if [ "$PROXY" ]; then
-	echo $PROXY
+		echo -e "<IfModule mod_proxy.c>\nProxyPass $PROXY\n</IfModule>" > etc/apache2/mods-enabled/proxy.conf
 fi
+
+exec "$@"

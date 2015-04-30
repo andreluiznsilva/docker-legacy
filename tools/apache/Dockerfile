@@ -16,7 +16,7 @@ RUN ln -sf ../mods-available/proxy_http.load /etc/apache2/mods-enabled/
 EXPOSE 80
 EXPOSE 443
 
-COPY docker-entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
