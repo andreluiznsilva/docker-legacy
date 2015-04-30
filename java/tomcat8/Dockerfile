@@ -1,9 +1,10 @@
-# Base image OpenJDK 7 and Tomcat 8
+# Tomcat 8
 
-FROM andreluiznsilva/java:openjdk7
+FROM debian:wheezy
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
+RUN apt-get update && apt-get install -y wget openjdk-7-jre-headless && apt-get autoremove && apt-get autoclean
 RUN wget -O /tmp/tomcat.tar.gz http://mirror.cogentco.com/pub/apache/tomcat/tomcat-8/v8.0.20/bin/apache-tomcat-8.0.20.tar.gz && \
 	tar zxf /tmp/tomcat.tar.gz -C /opt && \
 	mv /opt/apache-tomcat-8.0.20 /opt/tomcat8 && \

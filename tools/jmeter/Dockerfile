@@ -1,10 +1,10 @@
-# Base image jmeter
+# Jmeter
 
-FROM andreluiznsilva/java:openjdk7
+FROM debian:wheezy
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
-RUN apt-get update && apt-get install -y libnet-ifconfig-wrapper-perl && apt-get autoremove && apt-get autoclean
+RUN apt-get update && apt-get install -y wget openjdk-7-jre-headless libnet-ifconfig-wrapper-perl && apt-get autoremove && apt-get autoclean
 RUN wget -O /tmp/apache-jmeter-2.12.tgz http://mirror.nbtelecom.com.br/apache//jmeter/binaries/apache-jmeter-2.12.tgz && \
 	tar -zxf /tmp/apache-jmeter-2.12.tgz -C /opt && \
 	mv /opt/apache-jmeter-2.12 /opt/jmeter && \

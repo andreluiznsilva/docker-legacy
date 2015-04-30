@@ -1,9 +1,10 @@
-# Base image OpenJDK 7 and Wildfly 8
+# Wildfly 7
 
-FROM andreluiznsilva/java:openjdk7
+FROM debian:wheezy
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
+RUN apt-get update && apt-get install -y wget openjdk-7-jre-headless && apt-get autoremove && apt-get autoclean
 RUN wget -O /tmp/wildfly.tar.gz http://download.jboss.org/wildfly/8.2.0.Final/wildfly-8.2.0.Final.tar.gz && \
 	tar zxf /tmp/wildfly.tar.gz -C /opt && \
 	mv /opt/wildfly-8.2.0.Final /opt/wildfly8 && \

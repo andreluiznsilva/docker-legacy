@@ -1,9 +1,10 @@
-# Base image OpenJDK 7 and JBoss 7
+# JBoss 7
 
-FROM andreluiznsilva/java:openjdk7
+FROM debian:wheezy
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
+RUN apt-get update && apt-get install -y wget openjdk-7-jre-headless && apt-get autoremove && apt-get autoclean
 RUN wget -O /tmp/jboss.tar.gz http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz && \
 	tar zxf /tmp/jboss.tar.gz -C /opt && \
 	mv /opt/jboss-as-7.1.1.Final /opt/jboss7 && \

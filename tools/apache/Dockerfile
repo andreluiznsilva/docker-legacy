@@ -1,4 +1,4 @@
-# Base image apache
+# Apache2
 
 FROM debian:wheezy
 

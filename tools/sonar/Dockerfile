@@ -1,10 +1,10 @@
-# Base image Sonar
+# Sonar
 
-FROM andreluiznsilva/java:openjdk7
+FROM debian:wheezy
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
-RUN apt-get update && apt-get install -y procps
+RUN apt-get update && apt-get install -y procps wget zip && apt-get autoremove && apt-get autoclean
 RUN wget -O /tmp/sonarqube-4.5.1.zip http://dist.sonar.codehaus.org/sonarqube-4.5.1.zip && \
 	unzip /tmp/sonarqube-4.5.1.zip -d /opt && \
 	mv /opt/sonarqube-4.5.1 /opt/sonar && \
