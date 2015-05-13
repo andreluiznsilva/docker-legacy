@@ -13,8 +13,7 @@ RUN ln -sf ../mods-available/proxy.load /etc/apache2/mods-enabled/
 RUN ln -sf ../mods-available/proxy_ajp.load /etc/apache2/mods-enabled/
 RUN ln -sf ../mods-available/proxy_http.load /etc/apache2/mods-enabled/
 	
-EXPOSE 80
-EXPOSE 443
+EXPOSE 80 443
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
