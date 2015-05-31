@@ -1,6 +1,6 @@
-# Wildfly 7
+# Wildfly 7 image
 
-FROM debian:wheezy
+FROM java:openjdk-7u65-jdk
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 

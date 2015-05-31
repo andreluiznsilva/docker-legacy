@@ -1,4 +1,4 @@
-# MySql image
+# Mysql 5.7 image
 
 FROM mysql:5.7
 

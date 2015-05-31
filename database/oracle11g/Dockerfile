@@ -1,4 +1,4 @@
-# Oracle Image
+# Oracle 11g Image
 
 FROM wnameless/oracle-xe-11g
 

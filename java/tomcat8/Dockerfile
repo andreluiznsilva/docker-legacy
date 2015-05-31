@@ -1,4 +1,4 @@
-# Tomcat 8
+# Tomcat 8 image
 
 FROM tomcat:8
 
@@ -15,6 +15,7 @@ RUN echo '<?xml version="1.0" encoding="utf-8"?><tomcat-users><role rolename="ma
 EXPOSE 8080 8000
 
 COPY entrypoint.sh /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["catalina.sh", "run"]

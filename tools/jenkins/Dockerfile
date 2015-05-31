@@ -1,4 +1,4 @@
-# Base image Jenkins
+# Jenkins latest image
 
 FROM jenkins:latest
 
