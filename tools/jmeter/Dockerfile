@@ -1,4 +1,4 @@
-# Jmeter 2.12 image
+# Jmeter 2.13 image
 
 FROM java:openjdk-7u65-jdk
 
@@ -8,11 +8,11 @@ ENV JMETER_RMI_HOSTNAME 127.0.0.1
 ENV JMETER_RMI_PORT 65501
 ENV JMETER_SERVER_PORT 65501
 
-ENV JMETER_VERSION 2.12
-ENV JMETER_PLUGINS_VERSION 1.2.0
+ENV JMETER_VERSION 2.13
+ENV JMETER_PLUGINS_VERSION 1.2.1
 
 RUN apt-get update && apt-get install -y wget libnet-ifconfig-wrapper-perl && apt-get autoremove && apt-get autoclean
-RUN wget -O /tmp/apache-jmeter-$JMETER_VERSION.tgz http://mirror.nbtelecom.com.br/apache//jmeter/binaries/apache-jmeter-$JMETER_VERSION.tgz && \
+RUN wget -O /tmp/apache-jmeter-$JMETER_VERSION.tgz http://mirror.nbtelecom.com.br/apache/jmeter/binaries/apache-jmeter-$JMETER_VERSION.tgz && \
 	tar -zxf /tmp/apache-jmeter-$JMETER_VERSION.tgz -C /opt && \
 	mv /opt/apache-jmeter-$JMETER_VERSION /opt/jmeter && \
 	wget -O /tmp/JMeterPlugins-Standard-$JMETER_PLUGINS_VERSION.zip http://jmeter-plugins.org/files/JMeterPlugins-Standard-$JMETER_PLUGINS_VERSION.zip && \
