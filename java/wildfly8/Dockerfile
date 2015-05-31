@@ -1,18 +1,19 @@
-# Wildfly 7 image
+# Wildfly 8 image
 
-FROM java:openjdk-7u65-jdk
+FROM jboss/wildfly:8.2.0.Final
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
-RUN apt-get update && apt-get install -y wget openjdk-7-jre-headless && apt-get autoremove && apt-get autoclean
-RUN wget -O /tmp/wildfly.tar.gz http://download.jboss.org/wildfly/8.2.0.Final/wildfly-8.2.0.Final.tar.gz && \
-	tar zxf /tmp/wildfly.tar.gz -C /opt && \
-	mv /opt/wildfly-8.2.0.Final /opt/wildfly8 && \
-	/opt/wildfly8/bin/add-user.sh --silent=true admin admin*123 && \
-	sed -i "s#.*inet-address.*#\t<any-ipv4-address/>#g" /opt/wildfly8/standalone/configuration/standalone.xml && \
-	ln -s /opt/wildfly8/standalone/deployments/ autodeploy && \
-	rm -rf  /tmp/*
+ENV JAVA_OPTS -Djava.security.egd=file:/dev/./urandom
+
+ENV WILDFLY_USER wildfly
+ENV WILDFLY_PASSWORD wildfly*123
+
+RUN /opt/jboss/wildfly/bin/add-user.sh --silent=true $WILDFLY_USER $WILDFLY_PASSWORD && \
+	env JAVA_OPTS="$JAVA_OPTS"
 
 EXPOSE 8080 9990
 
-CMD /opt/wildfly8/bin/standalone.sh -b 0.0.0.0
+WORKDIR /opt/jboss/wildfly
+
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
