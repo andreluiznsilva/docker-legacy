@@ -1,6 +1,6 @@
 # Weblogic 12 image
 
-FROM java:openjdk-7u65-jdk
+FROM debian:wheezy
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
@@ -11,7 +11,7 @@ ENV WEBLOGIC_PASSWORD weblogic*123
 
 ADD config.py /tmp/config.py
 
-RUN apt-get update && apt-get install -y wget zip && apt-get autoremove && apt-get autoclean
+RUN apt-get update && apt-get install -y wget zip openjdk-7-jre-headless && apt-get autoremove && apt-get autoclean
 RUN wget "https://www.dropbox.com/s/qykd8rgwbr57kv7/wls1213_dev.zip?dl=0" -O /tmp/wls1213_dev.zip && \
 	unzip /tmp/wls1213_dev.zip -d /opt && \
 	mv /opt/wls12130 /opt/weblogic12 && \

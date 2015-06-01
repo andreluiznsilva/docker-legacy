@@ -10,3 +10,5 @@ ENV MYSQL_USER mysql
 ENV MYSQL_PASSWORD mysql*123
 
 EXPOSE 3306
+
+WORKDIR /usr/local/mysql

@@ -1,6 +1,6 @@
 # JBoss 7 image
 
-FROM java:openjdk-7u65-jdk
+FROM debian:wheezy
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
