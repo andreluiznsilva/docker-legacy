@@ -9,9 +9,10 @@ ENV JAVA_OPTS -Djava.security.egd=file:/dev/./urandom
 ENV WILDFLY_USER wildfly
 ENV WILDFLY_PASSWORD wildfly*123
 
-RUN apt-get update && apt-get install -y wget && apt-get autoremove && apt-get autoclean
-RUN /opt/jboss/wildfly/bin/add-user.sh --silent=true $WILDFLY_USER $WILDFLY_PASSWORD && \
-	env JAVA_OPTS="$JAVA_OPTS"
+RUN env JAVA_OPTS="$JAVA_OPTS" && \
+	$JBOSS_HOME/bin/add-user.sh --silent=true $WILDFLY_USER $WILDFLY_PASSWORD && \	
+	sed -i "s#.*inet-address.*#\t<any-ipv4-address/>#g" $JBOSS_HOME/standalone/configuration/standalone.xml && \
+	sed -i 's/scan-interval="5000"/scan-interval="1000" auto-deploy-exploded="true"/g' $JBOSS_HOME/standalone/configuration/standalone.xml
 
 EXPOSE 8080 9990
 
