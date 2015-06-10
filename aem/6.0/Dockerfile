@@ -16,7 +16,7 @@ ENV AEM_LICENSE_DOWNLOADID=""
 
 WORKDIR /opt/aem
 
-RUN curl -o cq-$AEM_MODE-$AEM_PORT.jar https://www.dropbox.com/s/5d6avsc5rvtmb8x/AEM_6.0_Quickstart.jar?dl=0 && \
+RUN curl -L -o cq-$AEM_MODE-$AEM_PORT.jar https://www.dropbox.com/s/5d6avsc5rvtmb8x/AEM_6.0_Quickstart.jar?dl=0 && \
 	echo "license.product.name=$AEM_LICENSE_PRODUCT_NAME" >> license.properties && \
 	echo "license.customer.name=$AEM_LICENSE_CUSTOMER_NAME" >> license.properties && \
 	echo "license.product.version=$AEM_LICENSE_PRODUCT_VERSION" >> license.properties && \
