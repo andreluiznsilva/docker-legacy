@@ -1,0 +1,30 @@
+# AEM 6.0
+
+FROM java:openjdk-7
+
+MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
+
+ENV JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -Xmx1024m, -XX:MaxPermSize=256m
+
+ENV AEM_MODE="author"
+ENV AEM_PORT="4502"
+
+ENV AEM_LICENSE_PRODUCT_NAME="ADOBE EXPERIENCE MANAGER"
+ENV AEM_LICENSE_PRODUCT_VERSION="6_0_0_20140509"
+ENV AEM_LICENSE_CUSTOMER_NAME=""
+ENV AEM_LICENSE_DOWNLOADID=""
+
+COPY AEM_6.0_Quickstart.jar /opt/aem/cq-$AEM_MODE-$AEM_PORT.jar
+
+WORKDIR /opt/aem
+
+RUN curl -o cq-$AEM_MODE-$AEM_PORT.jar https://www.dropbox.com/s/5d6avsc5rvtmb8x/AEM_6.0_Quickstart.jar?dl=0 && \
+	echo "license.product.name=$AEM_LICENSE_PRODUCT_NAME" >> license.properties && \
+	echo "license.customer.name=$AEM_LICENSE_CUSTOMER_NAME" >> license.properties && \
+	echo "license.product.version=$AEM_LICENSE_PRODUCT_VERSION" >> license.properties && \
+	echo "license.downloadID=$AEM_LICENSE_DOWNLOADID" >> license.properties && \
+	java -jar cq-$AEM_MODE-$AEM_PORT.jar -unpack -r nosamplecontent
+
+EXPOSE $AEM_PORT
+
+ENTRYPOINT ["crx-quickstart/bin/quickstart"]
