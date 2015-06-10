@@ -14,8 +14,6 @@ ENV AEM_LICENSE_PRODUCT_VERSION="6_0_0_20140509"
 ENV AEM_LICENSE_CUSTOMER_NAME=""
 ENV AEM_LICENSE_DOWNLOADID=""
 
-COPY AEM_6.0_Quickstart.jar /opt/aem/cq-$AEM_MODE-$AEM_PORT.jar
-
 WORKDIR /opt/aem
 
 RUN curl -o cq-$AEM_MODE-$AEM_PORT.jar https://www.dropbox.com/s/5d6avsc5rvtmb8x/AEM_6.0_Quickstart.jar?dl=0 && \
