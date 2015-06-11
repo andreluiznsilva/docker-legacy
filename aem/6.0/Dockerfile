@@ -22,5 +22,3 @@ EXPOSE 4502 4503
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["crx-quickstart/bin/quickstart"]

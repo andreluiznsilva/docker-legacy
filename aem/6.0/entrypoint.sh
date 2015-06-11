@@ -16,6 +16,4 @@ mv AEM_6.0_Quickstart.jar "$JAR_NAME"
 
 echo "$JAR_NAME"
 
-java -jar "$JAR_NAME" -unpack -r nosamplecontent
-
-exec "$@"
+java -jar "$JAR_NAME"
