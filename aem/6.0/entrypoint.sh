@@ -8,14 +8,16 @@ echo "license.customer.name=$AEM_LICENSE_CUSTOMER_NAME" >> license.properties
 echo "license.product.version=$AEM_LICENSE_PRODUCT_VERSION" >> license.properties
 echo "license.downloadID=$AEM_LICENSE_DOWNLOADID" >> license.properties
 
-env JAR_NAME="cq-publish-4503"
+env JAR_NAME="cq-publish-4503.jar"
 
 if [ "$AEM_MODE" == "author" ]; then
-	env JAR_NAME="cq-author-4502"
+	env JAR_NAME="cq-author-4502.jar"
 fi
 
-mv AEM_6.0_Quickstart.jar $JAR_NAME.jar
+mv AEM_6.0_Quickstart.jar $JAR_NAME
 
-java -jar $JAR_NAME.jar -unpack -r nosamplecontent
+echo "$JAR_NAME"
+
+java -jar "$JAR_NAME" -unpack -r nosamplecontent
 
 exec "$@"
