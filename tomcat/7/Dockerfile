@@ -13,4 +13,8 @@ ENV TOMCAT_LIBS=""
 
 EXPOSE 8080
 
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
 CMD ["catalina.sh", "run"]
