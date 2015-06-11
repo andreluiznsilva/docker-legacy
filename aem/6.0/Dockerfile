@@ -6,8 +6,7 @@ MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
 ENV JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -Xmx1024m, -XX:MaxPermSize=256m
 
-ENV AEM_MODE="author"
-ENV AEM_PORT="4502"
+ENV AEM_MODE="publish"
 
 ENV AEM_LICENSE_PRODUCT_NAME="ADOBE EXPERIENCE MANAGER"
 ENV AEM_LICENSE_PRODUCT_VERSION="6_0_0_20140509"
@@ -16,13 +15,12 @@ ENV AEM_LICENSE_DOWNLOADID=""
 
 WORKDIR /opt/aem
 
-RUN curl -L -o cq-$AEM_MODE-$AEM_PORT.jar https://www.dropbox.com/s/5d6avsc5rvtmb8x/AEM_6.0_Quickstart.jar?dl=0 && \
-	echo "license.product.name=$AEM_LICENSE_PRODUCT_NAME" >> license.properties && \
-	echo "license.customer.name=$AEM_LICENSE_CUSTOMER_NAME" >> license.properties && \
-	echo "license.product.version=$AEM_LICENSE_PRODUCT_VERSION" >> license.properties && \
-	echo "license.downloadID=$AEM_LICENSE_DOWNLOADID" >> license.properties && \
-	java -jar cq-$AEM_MODE-$AEM_PORT.jar -unpack -r nosamplecontent
+RUN curl -L -o AEM_6.0_Quickstart.jar https://www.dropbox.com/s/5d6avsc5rvtmb8x/AEM_6.0_Quickstart.jar?dl=0
 
-EXPOSE $AEM_PORT
+EXPOSE 4502 4503
 
-ENTRYPOINT ["crx-quickstart/bin/quickstart"]
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["crx-quickstart/bin/quickstart"]
