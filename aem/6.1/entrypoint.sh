@@ -8,7 +8,7 @@ echo "license.downloadID=$AEM_LICENSE_DOWNLOADID" >> license.properties
 
 export AEM_PORT='4502';
 
-if [ "$AEM_MODE" == "author" ]; then
+if [ "$AEM_MODE" == "publish" ]; then
 	export AEM_PORT='4503';
 fi
 
