@@ -15,7 +15,7 @@ ENV AEM_LICENSE_DOWNLOADID=""
 
 WORKDIR /opt/aem
 
-COPY cq-quickstart-beta-6.1.0.jar cq-quickstart-beta-6.1.0.jar
+RUN curl -L -o cq-quickstart-beta-6.1.0.jar https://www.dropbox.com/s/xghxxherv5w54dx/cq-quickstart-beta-6.1.0.jar?dl=0
 
 EXPOSE 4502 4503
 
