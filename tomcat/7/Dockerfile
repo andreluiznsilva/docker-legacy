@@ -11,7 +11,9 @@ ENV TOMCAT_PASSWORD="tomcat*123"
 ENV TOMCAT_RESOURCES=""
 ENV TOMCAT_LIBS=""
 
-EXPOSE 8080
+EXPOSE 8080 8443
+
+RUN eytool -genkey -noprompt -alias tomcat -dname "CN=localhost, OU=ID, O=docker, L=Hursley, S=Hants, C=GB" -keyalg RSA -keystore /root/.keystore -storepass changeit -keypass changeit
 
 COPY entrypoint.sh /entrypoint.sh
 
