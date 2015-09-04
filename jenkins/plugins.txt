@@ -1,0 +1,11 @@
+delivery-pipeline-plugin
+email-ext
+job-dsl
+nodejs
+parameterized-trigger
+build-pipeline-plugin
+nested-view
+ws-cleanup
+envinject
+copyartifact
+sonar
