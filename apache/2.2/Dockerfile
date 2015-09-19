@@ -13,7 +13,8 @@ RUN ln -sf ../sites-available/default-ssl /etc/apache2/sites-enabled/001-default
 	ln -sf ../mods-available/proxy.conf /etc/apache2/mods-enabled/ && \
 	ln -sf ../mods-available/proxy.load /etc/apache2/mods-enabled/ && \
 	ln -sf ../mods-available/proxy_ajp.load /etc/apache2/mods-enabled/ && \
-	ln -sf ../mods-available/proxy_http.load /etc/apache2/mods-enabled/
+	ln -sf ../mods-available/proxy_http.load /etc/apache2/mods-enabled/ && \
+	ln -sf ../mods-available/proxy_balancer.load /etc/apache2/mods-enabled/
 	
 EXPOSE 80 443
 
