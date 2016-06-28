@@ -1,0 +1,15 @@
+example:
+  image: andreluiznsilva/mysql
+  ports:
+    - 3306:3306
+  environment:
+    - MYSQL_ROOT_PASSWORD root
+    - MYSQL_DATABASE default
+    - MYSQL_USER mysql
+    - MYSQL_PASSWORD mysql
+    - MYSQL_SCRIPT=
+        CREATE DATABASE andreluiznsilva; \n
+        CREATE USER 'andreluiznsilva'@'%' IDENTIFIED BY 'andreluiznsilva'; \n
+        GRANT ALL PRIVILEGES ON *.* TO 'andreluiznsilva'@'%' WITH GRANT OPTION; \n
+        FLUSH PRIVILEGES; \n
+        SELECT User FROM mysql.user; \n
