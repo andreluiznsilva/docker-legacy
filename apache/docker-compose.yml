@@ -1,0 +1,9 @@
+example:
+  image: andreluiznsilva/apache:2.4
+  ports:
+    - 80:80
+    - 443:443
+  environment:
+    - APACHE_MOD_PROXY=
+        ProxyRequests On \n
+        ProxyPass / https://www.linkedin.com/in/andreluiznsilva \n

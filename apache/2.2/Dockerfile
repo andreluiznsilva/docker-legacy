@@ -1,6 +1,6 @@
 # Apache2
 
-FROM debian:wheezy
+FROM debian:jessie
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
@@ -17,7 +17,7 @@ RUN ln -sf ../sites-available/default-ssl /etc/apache2/sites-enabled/001-default
 	ln -sf ../mods-available/proxy_ajp.load /etc/apache2/mods-enabled/ && \
 	ln -sf ../mods-available/proxy_http.load /etc/apache2/mods-enabled/ && \
 	ln -sf ../mods-available/proxy_balancer.load /etc/apache2/mods-enabled/
-	
+
 EXPOSE 80 443
 
 WORKDIR /etc/apache2

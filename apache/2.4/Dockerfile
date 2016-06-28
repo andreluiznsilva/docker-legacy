@@ -10,16 +10,14 @@ RUN apt-get update && apt-get install -y apache2 net-tools && apt-get autoremove
 RUN ln -sf ../sites-available/default-ssl /etc/apache2/sites-enabled/001-default-ssl && \
 	ln -sf ../mods-available/ssl.conf /etc/apache2/mods-enabled/ && \
 	ln -sf ../mods-available/ssl.load /etc/apache2/mods-enabled/ && \
-	ln -sf ../mods-available/socache_shmcb.load /etc/apache2/mods-enabled/ && \
 	ln -sf ../mods-available/expires.load /etc/apache2/mods-enabled/ && \
 	ln -sf ../mods-available/headers.load /etc/apache2/mods-enabled/ && \
 	ln -sf ../mods-available/proxy.conf /etc/apache2/mods-enabled/ && \
 	ln -sf ../mods-available/proxy.load /etc/apache2/mods-enabled/ && \
 	ln -sf ../mods-available/proxy_ajp.load /etc/apache2/mods-enabled/ && \
 	ln -sf ../mods-available/proxy_http.load /etc/apache2/mods-enabled/ && \
-	ln -sf ../mods-available/proxy_wstunnel.load /etc/apache2/mods-enabled/ && \
 	ln -sf ../mods-available/proxy_balancer.load /etc/apache2/mods-enabled/
-	
+
 EXPOSE 80 443
 
 WORKDIR /etc/apache2
