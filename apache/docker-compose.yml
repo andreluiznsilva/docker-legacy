@@ -1,5 +1,5 @@
 example:
-  image: andreluiznsilva/apache:2.4
+  image: andreluiznsilva/apache
   ports:
     - 80:80
     - 443:443
