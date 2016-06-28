@@ -1,0 +1,13 @@
+example:
+  image: andreluiznsilva/tomcat
+  ports:
+    - 8080:8080
+    - 8443:8443
+  environment:
+    - JAVA_OPTS=-Djava.security.egd=file:/dev/./urandom -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000 -XX:MaxPermSize=512m -Xms256m -Xmx512m -Dspring.profiles.active=local
+    - TOMCAT_USER=tomcat
+    - TOMCAT_PASSWORD=tomcat
+    - TOMCAT_LIBS=
+        http://central.maven.org/maven2/com/sun/mail/javax.mail/1.5.4/javax.mail-1.5.4.jar
+    - TOMCAT_RESOURCES=
+        <Resource name="mail/default" auth="Container" type="javax.mail.Session" mail.smtp.host="smtp" mail.smtp.port="1025" />
