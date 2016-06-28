@@ -4,7 +4,8 @@ FROM jenkins:latest
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
-USER root
+ENV JENKINS_PLUGINS="job-dsl delivery-pipeline-plugin"
 
-COPY plugins.txt plugins.txt
-RUN /usr/local/bin/plugins.sh plugins.txt
+COPY plugins.txt /usr/share/jenkins/ref/
+
+RUN /usr/local/bin/plugins.sh $JENKINS_PLUGINS
