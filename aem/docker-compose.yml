@@ -1,0 +1,11 @@
+aem:
+  image: andreluiznsilva/aem
+  ports:
+    - 4502:4502
+    - 4503:4503
+  environment:
+    - AEM_MODE="publish"
+    - AEM_LICENSE_PRODUCT_NAME="ADOBE EXPERIENCE MANAGER"
+    - AEM_LICENSE_PRODUCT_VERSION="6_0_0_20140509"
+    - AEM_LICENSE_CUSTOMER_NAME=""
+    - AEM_LICENSE_DOWNLOADID=""
