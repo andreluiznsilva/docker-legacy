@@ -4,8 +4,10 @@ FROM jenkins:latest
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
-ENV JENKINS_PLUGINS="job-dsl delivery-pipeline-plugin"
+USER root
 
-COPY plugins.txt /usr/share/jenkins/ref/
+EXPOSE 8080 50000
 
-RUN /usr/local/bin/plugins.sh $JENKINS_PLUGINS
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
