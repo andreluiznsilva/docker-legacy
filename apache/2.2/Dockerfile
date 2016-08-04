@@ -7,7 +7,7 @@ MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 ENV APACHE_MOD_PROXY=""
 
 RUN apt-get update && apt-get install -y apache2 net-tools && apt-get autoremove && apt-get autoclean
-RUN ln -sf ../sites-available/default-ssl /etc/apache2/sites-enabled/001-default-ssl && \
+RUN ln -sf /etc/apache2/sites-available/default-ssl /etc/apache2/sites-enabled/001-default-ssl && \
 	ln -sf /etc/apache2/mods-available/ssl.conf /etc/apache2/mods-enabled/ && \
 	ln -sf /etc/apache2/mods-available/ssl.load /etc/apache2/mods-enabled/ && \
 	ln -sf /etc/apache2/mods-available/expires.load /etc/apache2/mods-enabled/ && \
