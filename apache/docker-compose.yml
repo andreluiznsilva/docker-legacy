@@ -1,5 +1,5 @@
 example:
-  image: andreluiznsilva/apache
+  image: test2
   ports:
     - 80:80
     - 443:443
@@ -7,3 +7,5 @@ example:
     - APACHE_MOD_PROXY=
         ProxyRequests On \n
         ProxyPass / https://www.linkedin.com/in/andreluiznsilva \n
+  command:
+    ls -ls

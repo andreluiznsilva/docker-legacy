@@ -1,6 +1,6 @@
 # Apache2
 
-FROM debian:jessie
+FROM debian:wheezy
 
 MAINTAINER Andre Nascimento <andreluiznsilva@gmail.com>
 
