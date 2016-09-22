@@ -12,7 +12,16 @@ if [ "$TOMCAT_RESOURCES" ]; then
 fi
 
 if [ "$TOMCAT_LIBS" ]; then
-	wget -P $CATALINA_HOME/lib $TOMCAT_LIBS
+	IFS=' ' read -r -a libs_url_array <<< "$TOMCAT_LIBS"
+	for lib_url in "${libs_url_array[@]}"
+	do
+	    if [ -e $CATALINA_HOME/lib/`basename $lib_url` ]
+		then
+			echo "$lib_url was already downloaded."
+		else
+			wget -P $CATALINA_HOME/lib $lib_url
+		fi
+	done
 fi
 
 exec "$@"
