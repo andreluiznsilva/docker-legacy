@@ -1,4 +1,4 @@
-docker
+docker-legacy
 ======
 
 Collection of Legacy Docker build files.
